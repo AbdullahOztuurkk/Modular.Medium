@@ -1,0 +1,26 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Bootstrapper/">
+    <Project Path="src/Bootstrapper/Host.Web.Api/Host.Web.Api.csproj" />
+  </Folder>
+  <Folder Name="/src/Infrastructure/">
+    <Project Path="src/Infrastructure/BuildingBlocks/BuildingBlocks.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/" />
+  <Folder Name="/src/Modules/Interaction/">
+    <Project Path="src/Modules/Interaction/InteractionModule.Contracts/InteractionModule.Contracts.csproj" />
+    <Project Path="src/Modules/Interaction/InteractionModule/InteractionModule.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/Notification/">
+    <Project Path="src/Modules/Notification/NotificationModule.Contracts/NotificationModule.Contracts.csproj" />
+    <Project Path="src/Modules/Notification/NotificationModule/NotificationModule.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/Resource/">
+    <Project Path="src/Modules/Resource/ResourceModule.Contracts/ResourceModule.Contracts.csproj" />
+    <Project Path="src/Modules/Resource/ResourceModule/ResourceModule.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/User/">
+    <Project Path="src/Modules/User/UserModule.Contracts/UserModule.Contracts.csproj" />
+    <Project Path="src/Modules/User/UserModule/UserModule.csproj" />
+  </Folder>
+</Solution>

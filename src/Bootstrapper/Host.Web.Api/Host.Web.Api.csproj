@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.10" />
+		<PackageReference Include="AspNetCore.HealthChecks.ApplicationStatus" Version="9.0.0" />
+		<PackageReference Include="AspNetCore.HealthChecks.UI" Version="9.0.0" />
+		<PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="9.0.0" />
+		<PackageReference Include="AspNetCore.HealthChecks.UI.SqlServer.Storage" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\BuildingBlocks\BuildingBlocks.csproj" />
+    <ProjectReference Include="..\..\Modules\Interaction\InteractionModule\InteractionModule.csproj" />
+    <ProjectReference Include="..\..\Modules\Notification\NotificationModule\NotificationModule.csproj" />
+    <ProjectReference Include="..\..\Modules\Resource\ResourceModule\ResourceModule.csproj" />
+    <ProjectReference Include="..\..\Modules\User\UserModule\UserModule.csproj" />
+  </ItemGroup>
+
+</Project>
