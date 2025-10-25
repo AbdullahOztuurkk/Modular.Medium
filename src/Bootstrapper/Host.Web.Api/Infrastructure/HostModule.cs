@@ -1,9 +1,4 @@
-﻿using BuildingBlocks.Domain.Constant;
-using BuildingBlocks.Module;
-using HealthChecks.ApplicationStatus.DependencyInjection;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-
-namespace Host.Web.Api.Infrastructure;
+﻿namespace Host.Web.Api.Infrastructure;
 
 public sealed class HostModule : IModule, IHaveHealthCheck, IHaveService
 {
@@ -16,6 +11,8 @@ public sealed class HostModule : IModule, IHaveHealthCheck, IHaveService
 
     public IServiceCollection ConfigureServices(IServiceCollection services, IConfiguration configuration)
     {
+        services.AddHttpContextAccessor();
+
         var connectionString = configuration.GetConnectionString(ConfigurationKeys.ConnectionStrings.HealthCheckDb);
         if (string.IsNullOrEmpty(connectionString))
         {

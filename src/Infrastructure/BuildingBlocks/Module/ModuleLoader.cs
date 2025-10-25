@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using BuildingBlocks.Domain.Constant;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
@@ -66,16 +67,29 @@ public static class ModuleLoader
     /// <returns>A task representing the asynchronous operation.</returns>
     public static async Task LoadModulesAsync(this WebApplication app, List<IModule> modules)
     {
+        var seedEnabled = bool.TryParse(app.Configuration[ConfigurationKeys.SeedEnabled], out _);
+        var migrationEnabled = bool.TryParse(app.Configuration[ConfigurationKeys.MigrationEnabled], out _);
+
+        if(!seedEnabled || !migrationEnabled)
+        {
+            app.Lifetime.ApplicationStarted.Register(() =>
+            {
+                var logger = app.Services.GetRequiredService<ILoggerFactory>()
+                    .CreateLogger(nameof(ModuleLoader));
+
+                logger.LogInformation("Loading Modules part has been skipped: Seed or migration not enabled.");
+            });
+
+            return;
+        }
+
         using var scope = app.Services.CreateScope();
         var serviceProvider = scope.ServiceProvider;
 
         var seederModules = modules.OfType<IHaveSeeder>();
         var migrationModules = modules.OfType<IHaveMigration>();
 
-        var seedEnabled = app.Configuration[ConfigurationKeys.SeedEnabled]?.ToBool();
-        var migrationEnabled = app.Configuration[ConfigurationKeys.MigrationEnabled]?.ToBool();
-
-        if (seedEnabled ?? false)
+        if (seedEnabled)
         {
             foreach (var seeder in seederModules)
             {
@@ -83,7 +97,7 @@ public static class ModuleLoader
             }
         }
 
-        if (migrationEnabled ?? false)
+        if (migrationEnabled)
         {
             foreach (var migration in migrationModules)
             {
