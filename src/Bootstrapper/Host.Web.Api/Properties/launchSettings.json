@@ -1,0 +1,16 @@
+﻿{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "Host.Web.Api": {
+      "commandName": "Project",
+      "launchUrl": "scalar/v1",
+      "dotnetRunMessages": true,
+      "hotReloadEnabled": false,
+      "launchBrowser": false,
+      "applicationUrl": "http://localhost:8000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Debug"
+      }
+    }
+  }
+}

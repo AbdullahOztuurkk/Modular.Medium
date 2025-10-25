@@ -1,0 +1,10 @@
+﻿global using BuildingBlocks.Domain.Constant;
+global using BuildingBlocks.Module;
+global using HealthChecks.ApplicationStatus.DependencyInjection;
+global using Host.Web.Api.Infrastructure;
+global using Host.Web.Api.Infrastructure.Extensions;
+global using InteractionModule.Host;
+global using Microsoft.EntityFrameworkCore.Diagnostics;
+global using NotificationModule.Host;
+global using ResourceModule.Host;
+global using UserModule.Host;
