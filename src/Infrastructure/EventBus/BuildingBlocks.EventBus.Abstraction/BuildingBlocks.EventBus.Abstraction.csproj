@@ -3,11 +3,15 @@
 	<ItemGroup>
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 	</ItemGroup>
-	
-  <PropertyGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\BuildingBlocks\BuildingBlocks.csproj" />
+	</ItemGroup>
+
+	<PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>disable</Nullable>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
 </Project>
