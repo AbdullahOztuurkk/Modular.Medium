@@ -1,7 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<ItemGroup>
+	<ItemGroup Label="Framework References">
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup Label="Packages">
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.3.0" />
 	</ItemGroup>
 	
   <PropertyGroup>
