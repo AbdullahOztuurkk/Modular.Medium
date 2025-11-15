@@ -1,13 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace BuildingBlocks.Database.EntityFrameworkCore.Infrastructure;
+namespace BuildingBlocks.Database.EntityFrameworkCore;
 
-public abstract class BaseModuleContext : DbContext
+public abstract class ModuleContext : DbContextd
 {
     public static IConfiguration? Configuration { get; private set; }
+    public abstract string SchemaName { get; }
 
-    public BaseModuleContext(DbContextOptions options) : base(options)
+    public ModuleContext(DbContextOptions options) : base(options)
     {
         string environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Development";
         Configuration = new ConfigurationBuilder()
@@ -18,5 +19,11 @@ public abstract class BaseModuleContext : DbContext
 #endif
                 .AddEnvironmentVariables()
                 .Build();
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.HasDefaultSchema(SchemaName);
+        base.OnModelCreating(modelBuilder);
     }
 }
