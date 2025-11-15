@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace BuildingBlocks.Database.EntityFrameworkCore;
 
-public abstract class ModuleContext : DbContextd
+public abstract class ModuleContext : DbContext
 {
     public static IConfiguration? Configuration { get; private set; }
     public abstract string SchemaName { get; }

@@ -19,9 +19,9 @@
 		</PackageReference>
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.7" />
 	</ItemGroup>
-	
-  <ItemGroup>
-    <ProjectReference Include="..\src\Infrastructure\BuildingBlocks\BuildingBlocks.csproj" />
-  </ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\BuildingBlocks\BuildingBlocks.csproj" />
+	</ItemGroup>
 
 </Project>

@@ -4,7 +4,7 @@
     <Project Path="src/Bootstrapper/Host.Web.Api/Host.Web.Api.csproj" />
   </Folder>
   <Folder Name="/src/Infrastructure/">
-    <Project Path="BuildingBlocks.Database.EntityFrameworkCore/BuildingBlocks.Database.EntityFrameworkCore.csproj" Id="3bd5b4c9-9560-4280-965f-bdf0c67a950a" />
+    <Project Path="src/Infrastructure/BuildingBlocks.Database.EntityFrameworkCore/BuildingBlocks.Database.EntityFrameworkCore.csproj" Id="3bd5b4c9-9560-4280-965f-bdf0c67a950a" />
     <Project Path="src/Infrastructure/BuildingBlocks/BuildingBlocks.csproj" />
   </Folder>
   <Folder Name="/src/Infrastructure/EventBus/">
