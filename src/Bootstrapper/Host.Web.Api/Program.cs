@@ -1,3 +1,5 @@
+using BuildingBlocks.DependencyInjection;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddEnvironmentVariables();
 
@@ -16,6 +18,8 @@ List<IModule> Modules =
     new NotificationModuleHost(),
 ];
 #endregion
+
+builder.Services.AddInfrastructureBuildingBlocks();
 
 builder.RegisterModules(Modules);
 
